@@ -1,13 +1,13 @@
 import sys
 
-N = int(input())
-numbers = []
+n = int(input())
+num_list = [0] * 10001
 
-# 수 범위가 클경우 그냥 int(input()) 을 사용하면 시간초과 남
-for i in range(N):
-    numbers.append(int(sys.stdin.readline()))
+for _ in range(n):
+    num_list[int(sys.stdin.readline())] += 1
 
-numbers.sort()
-
-for i in range(N):
-    print(numbers[i])
+# 그냥 정렬하면 메모리 초과 남
+for i in range(10001):
+    if num_list[i] != 0:
+        for j in range(num_list[i]):
+            print(i)
